@@ -2,7 +2,11 @@ import sys;
 import os;
 import xml.etree.ElementTree as ET
 
+#author: Halima Olapade
+#date: Jan 2011
+
 print "This is an xml parser script that parses the DBLP xml provided at http://www.informatik.uni-trier.de/~ley/db/\n";
+print "The program generates a list of all publication authors listed in dblp.xml along with known years of publication\n";
 
 def parse(parseFileName):
 	global dictAuthors;
@@ -17,7 +21,6 @@ def parse(parseFileName):
 
 	tree = ET.parse(parseFileName);	
 	root = tree.getroot();
-	#print(root);
 
 	for child in root:
 		allAuthors = child.findall('author');
@@ -26,9 +29,6 @@ def parse(parseFileName):
 		processRecord(allAuthors, pubYear);
 
 	writeRecords(resultFileName);
-	
-	#for author in root.iter('author'):
-	#	print author.text;
 	
 def processRecord(authors, yr):
 
@@ -51,10 +51,6 @@ def writeRecords(file):
 		y.sort();
 		output = a + "|" + ','.join(map(str, y)) ;		
 		resultFile.write(output.encode('utf-8') + '\n');
-
-	#	print a, y;
-	
-	#print('\n');
 	
 	resultFile.close();	
 
