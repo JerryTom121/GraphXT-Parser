@@ -3,7 +3,7 @@ import os;
 import xml.etree.ElementTree as ET
 
 #author: Halima Olapade
-#date: Jan 2011
+#date: Jan 2015
 
 print "This is an xml parser script that parses the DBLP xml provided at http://www.informatik.uni-trier.de/~ley/db/\n";
 print "The program generates a list of all publication authors listed in dblp.xml along with known years of publication\n";

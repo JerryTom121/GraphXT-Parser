@@ -2,6 +2,9 @@ import sys;
 import os;
 import xml.etree.ElementTree as ET
 
+#author: Halima Olapade
+#date: Jan 2015
+
 print "\nThis is an xml parser script that parses the DBLP xml provided at http://www.informatik.uni-trier.de/~ley/db/";
 print "The program generates a list of all co-author relationships between authors list in the document\n";
 
