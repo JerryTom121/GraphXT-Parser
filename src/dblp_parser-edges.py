@@ -6,7 +6,11 @@ import xml.etree.ElementTree as ET
 #date: Jan 2015
 
 print "\nThis is an xml parser script that parses the DBLP xml provided at http://www.informatik.uni-trier.de/~ley/db/";
-print "The program generates a list of all co-author relationships between authors list in the document\n";
+print "The program generates a list of all co-author relationships between authors listed in the document in 'Author1|Author2|Year1,Year2,Year3' format\n";
+
+#example output: format 'Author1|Author2|Year1,Year2,Year3'
+#Alfred Kaltenmeier|André Berton|2006,2009,2013
+#André Berton|Udo Haiber|2006
 
 def parse(parseFileName):
 	global dictEdges;

@@ -6,7 +6,11 @@ import xml.etree.ElementTree as ET
 #date: Jan 2015
 
 print "This is an xml parser script that parses the DBLP xml provided at http://www.informatik.uni-trier.de/~ley/db/\n";
-print "The program generates a list of all publication authors listed in dblp.xml along with known years of publication\n";
+print "The program generates a list of all publication authors listed in dblp.xml along with known years of publication in 'Author|Year1,Year2,Year3' format\n";
+
+#example output: format 'Author|Year1,Year2,Year3'
+#Massimo Zancanaro|2012,2014
+#Wolfgang Wahlster|2013
 
 def parse(parseFileName):
 	global dictAuthors;
