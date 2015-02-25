@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE dblp SYSTEM "dblp.dtd" [
+<!ELEMENT dblp (article|inproceedings|proceedings|book|incollection|
+                phdthesis|mastersthesis|www)*>
+<!ENTITY field "author|editor|title|booktitle|pages|year|address|journal|volume|number|month|url|ee|cdrom|cite|publisher|note|crossref|isbn|series|school|chapter">
+
+<!ELEMENT article (field)*>
+<!ATTLIST article
+                        key CDATA #REQUIRED
+                        reviewid CDATA #IMPLIED
+                        rating CDATA #IMPLIED
+>
+
+<!ELEMENT inproceedings (field)*>
+<!ATTLIST inproceedings key CDATA #REQUIRED>
+
+<!ELEMENT proceedings   (field)*>
+<!ATTLIST proceedings   key CDATA #REQUIRED>
+
+<!ELEMENT book          (field)*>
+<!ATTLIST book          key CDATA #REQUIRED>
+
+<!ELEMENT incollection  (field)*>
+<!ATTLIST incollection  key CDATA #REQUIRED>
+
+<!ELEMENT phdthesis     (field)*>
+<!ATTLIST phdthesis     key CDATA #REQUIRED>
+
+<!ELEMENT mastersthesis (field)*>
+<!ATTLIST mastersthesis key CDATA #REQUIRED>
+
+<!ELEMENT www           (field)*>
+<!ATTLIST www           key CDATA #REQUIRED>
+
+<!ELEMENT author    (#PCDATA)>
+<!ELEMENT editor    (#PCDATA)>
+<!ELEMENT address   (#PCDATA)>
+
+<!ENTITY titlecontents "#PCDATA|sub|sup|i|tt|ref">
+<!ELEMENT title     (titlecontents)*>
+<!ELEMENT booktitle (#PCDATA)>
+<!ELEMENT pages     (#PCDATA)>
+<!ELEMENT year      (#PCDATA)>
+<!ELEMENT journal   (#PCDATA)>
+<!ELEMENT volume    (#PCDATA)>
+<!ELEMENT number    (#PCDATA)>
+<!ELEMENT month     (#PCDATA)>
+<!ELEMENT url       (#PCDATA)>
+<!ELEMENT ee        (#PCDATA)>
+<!ELEMENT cdrom     (#PCDATA)>
+<!ELEMENT cite      (#PCDATA)>
+<!ELEMENT school    (#PCDATA)>
+<!ELEMENT publisher (#PCDATA)>
+<!ATTLIST publisher
+                    href CDATA #IMPLIED
+>
+<!ELEMENT note      (#PCDATA)>
+<!ATTLIST cite
+                    label CDATA #IMPLIED
+>
+<!ELEMENT crossref  (#PCDATA)>
+<!ELEMENT isbn      (#PCDATA)>
+<!ELEMENT chapter   (#PCDATA)>
+<!ELEMENT series    (#PCDATA)>
+<!ATTLIST series
+                    href CDATA #IMPLIED
+>
+
+<!ELEMENT ref (#PCDATA)>
+<!ATTLIST ref href CDATA #REQUIRED>
+<!ELEMENT sup (titlecontents)*>
+<!ELEMENT sub (titlecontents)*>
+<!ELEMENT i   (titlecontents)*>
+<!ELEMENT tt  (titlecontents)*>
+
+<!ENTITY reg   "&#174;">
+<!ENTITY micro "&#181;">
+<!ENTITY times "&#215;">
+
+<!-- (C) International Organization for Standardization 1986
+     Permission to copy in any form is granted for use with
+     conforming SGML systems and applications as defined in
+     ISO 8879, provided this notice is included in all copies.
+-->
+<!-- Character entity set. Typical invocation:
+     <!ENTITY % HTMLlat1 PUBLIC
+       "ISO 8879-1986//ENTITIES Added Latin 1//EN//XML">
+-->
+<!-- This version of the entity set can be used with any SGML document
+     which uses ISO 8859-1 or ISO 10646 as its document character 
+     set. This includes XML documents and ISO HTML documents. 
+-->
+ 
+    <!ENTITY Agrave  "&#192;" ><!-- capital A, grave accent -->
+    <!ENTITY Aacute  "&#193;" ><!-- capital A, acute accent -->
+    <!ENTITY Acirc   "&#194;" ><!-- capital A, circumflex accent -->
+    <!ENTITY Atilde  "&#195;" ><!-- capital A, tilde -->
+    <!ENTITY Auml    "&#196;" ><!-- capital A, dieresis or umlaut mark -->
+    <!ENTITY Aring   "&#197;" ><!-- capital A, ring -->
+    <!ENTITY AElig   "&#198;" ><!-- capital AE diphthong (ligature) -->
+    <!ENTITY Ccedil  "&#199;" ><!-- capital C, cedilla -->
+    <!ENTITY Egrave  "&#200;" ><!-- capital E, grave accent -->
+    <!ENTITY Eacute  "&#201;" ><!-- capital E, acute accent -->
+    <!ENTITY Ecirc   "&#202;" ><!-- capital E, circumflex accent -->
+    <!ENTITY Euml    "&#203;" ><!-- capital E, dieresis or umlaut mark -->
+    <!ENTITY Igrave  "&#204;" ><!-- capital I, grave accent -->
+    <!ENTITY Iacute  "&#205;" ><!-- capital I, acute accent -->
+    <!ENTITY Icirc   "&#206;" ><!-- capital I, circumflex accent -->
+    <!ENTITY Iuml    "&#207;" ><!-- capital I, dieresis or umlaut mark -->
+    <!ENTITY ETH     "&#208;" ><!-- capital Eth, Icelandic -->
+    <!ENTITY Ntilde  "&#209;" ><!-- capital N, tilde -->
+    <!ENTITY Ograve  "&#210;" ><!-- capital O, grave accent -->
+    <!ENTITY Oacute  "&#211;" ><!-- capital O, acute accent -->
+    <!ENTITY Ocirc   "&#212;" ><!-- capital O, circumflex accent -->
+    <!ENTITY Otilde  "&#213;" ><!-- capital O, tilde -->
+    <!ENTITY Ouml    "&#214;" ><!-- capital O, dieresis or umlaut mark -->
+    <!ENTITY Oslash  "&#216;" ><!-- capital O, slash -->
+    <!ENTITY Ugrave  "&#217;" ><!-- capital U, grave accent -->
+    <!ENTITY Uacute  "&#218;" ><!-- capital U, acute accent -->
+    <!ENTITY Ucirc   "&#219;" ><!-- capital U, circumflex accent -->
+    <!ENTITY Uuml    "&#220;" ><!-- capital U, dieresis or umlaut mark -->
+    <!ENTITY Yacute  "&#221;" ><!-- capital Y, acute accent -->
+    <!ENTITY THORN   "&#222;" ><!-- capital THORN, Icelandic -->
+    <!ENTITY szlig   "&#223;" ><!-- small sharp s, German (sz ligature) -->
+    <!ENTITY agrave  "&#224;" ><!-- small a, grave accent -->   
+    <!ENTITY aacute  "&#225;" ><!-- small a, acute accent -->
+    <!ENTITY acirc   "&#226;" ><!-- small a, circumflex accent -->
+    <!ENTITY atilde  "&#227;" ><!-- small a, tilde -->
+    <!ENTITY auml    "&#228;" ><!-- small a, dieresis or umlaut mark -->
+    <!ENTITY aring   "&#229;" ><!-- small a, ring -->
+    <!ENTITY aelig   "&#230;" ><!-- small ae diphthong (ligature) -->
+    <!ENTITY ccedil  "&#231;" ><!-- small c, cedilla -->
+    <!ENTITY egrave  "&#232;" ><!-- small e, grave accent -->
+    <!ENTITY eacute  "&#233;" ><!-- small e, acute accent -->
+    <!ENTITY ecirc   "&#234;" ><!-- small e, circumflex accent -->
+    <!ENTITY euml    "&#235;" ><!-- small e, dieresis or umlaut mark -->
+    <!ENTITY igrave  "&#236;" ><!-- small i, grave accent -->
+    <!ENTITY iacute  "&#237;" ><!-- small i, acute accent -->
+    <!ENTITY icirc   "&#238;" ><!-- small i, circumflex accent -->
+    <!ENTITY iuml    "&#239;" ><!-- small i, dieresis or umlaut mark -->
+    <!ENTITY eth     "&#240;" ><!-- small eth, Icelandic -->
+    <!ENTITY ntilde  "&#241;" ><!-- small n, tilde -->
+    <!ENTITY ograve  "&#242;" ><!-- small o, grave accent -->
+    <!ENTITY oacute  "&#243;" ><!-- small o, acute accent -->
+    <!ENTITY ocirc   "&#244;" ><!-- small o, circumflex accent -->
+    <!ENTITY otilde  "&#245;" ><!-- small o, tilde -->
+    <!ENTITY ouml    "&#246;" ><!-- small o, dieresis or umlaut mark -->
+
+    <!ENTITY oslash  "&#248;" ><!-- small o, slash -->
+    <!ENTITY ugrave  "&#249;" ><!-- small u, grave accent -->
+    <!ENTITY uacute  "&#250;" ><!-- small u, acute accent -->
+    <!ENTITY ucirc   "&#251;" ><!-- small u, circumflex accent -->
+    <!ENTITY uuml    "&#252;" ><!-- small u, dieresis or umlaut mark -->
+    <!ENTITY yacute  "&#253;" ><!-- small y, acute accent -->
+    <!ENTITY thorn   "&#254;" ><!-- small thorn, Icelandic -->
+    <!ENTITY yuml    "&#255;" ><!-- small y, dieresis or umlaut mark -->
+]>
+
+<dblp>
+<www mdate="2004-12-02" key="www/org/w3/TR/query-algebra">
+<editor>Peter Fankhauser</editor>
+<editor>Mary F. Fern&aacute;ndez</editor>
+<editor>Ashok Malhotra</editor>
+<editor>Michael Rys</editor>
+<editor>J&eacute;r&ocirc;me Sim&eacute;on</editor>
+<editor>Philip Wadler</editor>
+<title>The XML Query Algebra</title>
+<year>2001</year>
+<url>http://www.w3.org/TR/2000/WD-query-algebra-20001204/</url>
+</www>
+
+<www mdate="2002-01-03" key="www/org/w3/TR/xmlquery-req">
+<editor>Donald D. Chamberlin</editor>
+<editor>Peter Fankhauser</editor>
+<editor>Massimo Marchiori</editor>
+<editor>Jonathan Robie</editor>
+<title>XML Query Requirements</title>
+<year>2001</year>
+<url>http://www.w3.org/TR/xmlquery-req</url>
+</www>
+
+<www mdate="2011-08-22" key="www/org/w3/TR/NOTE-xml-ql">
+<author>Alin Deutsch</author>
+<author>Mary F. Fernandez</author>
+<author>Daniela Florescu</author>
+<author>Alon Y. Levy</author>
+<author>Dan Suciu</author>
+<title>XML-QL: A Query Language for XML</title>
+<url>http://www.w3.org/TR/NOTE-xml-ql/</url>
+<year>1998</year>
+</www>
+
+<www mdate="2011-08-22" key="www/org/w3/TR/NOTE-xml-ql">
+<author>Alin Deutsch</author>
+<author>Mary F. Fernandez</author>
+<author>Daniela Florescu</author>
+<author>Alon Y. Levy</author>
+<author>Dan Suciu</author>
+<title>XML-QL: A Query Language for XML</title>
+<url>http://www.w3.org/TR/NOTE-xml-ql/</url>
+<year>2020</year>
+</www>
+
+<incollection mdate="2013-09-10" key="series/cogtech/Zancanaro12">
+<author>Massimo Zancanaro</author>
+<title>Shared Interfaces for Co-located Interaction.</title>
+<pages>71-88</pages>
+<year>2012</year>
+<booktitle>Ubiquitous Display Environments</booktitle>
+<ee>http://dx.doi.org/10.1007/978-3-642-27663-7_5</ee>
+<crossref>series/cogtech/364227662</crossref>
+<url>db/series/cogtech/364227662.html#Zancanaro12</url>
+</incollection>
+
+<incollection mdate="2013-09-10" key="series/cogtech/Wahlster13">
+<author>Wolfgang Wahlster</author>
+<title>The Semantic Product Memory: An Interactive Black Box for Smart Objects.</title>
+<pages>3-21</pages>
+<year>2013</year>
+<booktitle>SemProM</booktitle>
+<ee>http://dx.doi.org/10.1007/978-3-642-37377-0_1</ee>
+<crossref>series/cogtech/364237376</crossref>
+<url>db/series/cogtech/364237376.html#Wahlster13</url>
+</incollection>
+
+<incollection mdate="2013-09-10" key="series/cogtech/BertonKHS06">
+<author>Andr&eacute; Berton</author>
+<author>Alfred Kaltenmeier</author>
+<author>Udo Haiber</author>
+<author>Olaf Schreiner</author>
+<title>Speech Recognition.</title>
+<pages>85-107</pages>
+<year>2006</year>
+<booktitle>SmartKom</booktitle>
+<ee>http://dx.doi.org/10.1007/3-540-36678-4_6</ee>
+<crossref>series/cogtech/54023732</crossref>
+<url>db/series/cogtech/54023732.html#BertonKHS06</url>
+</incollection>
+
+<incollection mdate="2013-09-10" key="series/cogtech/BertonKHS06">
+<author>Andr&eacute; Berton</author>
+<author>Alfred Kaltenmeier</author>
+<author>Udo Haiber</author>
+<author>Olaf Schreiner</author>
+<title>Speech Recognition.</title>
+<pages>85-107</pages>
+<year>2030</year>
+<booktitle>SmartKom</booktitle>
+<ee>http://dx.doi.org/10.1007/3-540-36678-4_6</ee>
+<crossref>series/cogtech/54023732</crossref>
+<url>db/series/cogtech/54023732.html#BertonKHS06</url>
+</incollection>
+<incollection mdate="2013-09-10" key="series/cogtech/Zancanaro12">
+<author>Massimo Zancanaro</author>
+<title>Shared Interfaces for Co-located Interaction.</title>
+<pages>71-88</pages>
+<year>2012</year>
+<booktitle>Ubiquitous Display Environments</booktitle>
+<ee>http://dx.doi.org/10.1007/978-3-642-27663-7_5</ee>
+<crossref>series/cogtech/364227662</crossref>
+<url>db/series/cogtech/364227662.html#Zancanaro12</url>
+</incollection>
+<incollection mdate="2013-09-10" key="series/cogtech/Wahlster13">
+<author>Wolfgang Wahlster</author>
+<title>The Semantic Product Memory: An Interactive Black Box for Smart Objects.</title>
+<pages>3-21</pages>
+<year>2013</year>
+<booktitle>SemProM</booktitle>
+<ee>http://dx.doi.org/10.1007/978-3-642-37377-0_1</ee>
+<crossref>series/cogtech/364237376</crossref>
+<url>db/series/cogtech/364237376.html#Wahlster13</url>
+</incollection>
+<incollection mdate="2013-09-10" key="series/cogtech/BertonKHS06">
+<author>Andr&eacute; Berton</author>
+<author>Alfred Kaltenmeier</author>
+<author>Udo Haiber</author>
+<author>Olaf Schreiner</author>
+<title>Speech Recognition.</title>
+<pages>85-107</pages>
+<year>2006</year>
+<booktitle>SmartKom</booktitle>
+<ee>http://dx.doi.org/10.1007/3-540-36678-4_6</ee>
+<crossref>series/cogtech/54023732</crossref>
+<url>db/series/cogtech/54023732.html#BertonKHS06</url>
+</incollection>
+<incollection mdate="2013-09-10" key="series/cogtech/Wahlster06">
+<author>Wolfgang Wahlster</author>
+<title>Dialogue Systems Go Multimodal: The SmartKom Experience.</title>
+<pages>3-27</pages>
+<year>2006</year>
+<booktitle>SmartKom</booktitle>
+<ee>http://dx.doi.org/10.1007/3-540-36678-4_1</ee>
+<crossref>series/cogtech/54023732</crossref>
+<url>db/series/cogtech/54023732.html#Wahlster06</url>
+</incollection>
+<incollection mdate="2013-09-10" key="series/cogtech/CunninghamCD08">
+<author>P&aacute;draig Cunningham</author>
+<author>Matthieu Cord</author>
+<author>Sarah Jane Delany</author>
+<title>Supervised Learning.</title>
+<pages>21-49</pages>
+<year>2008</year>
+<booktitle>Machine Learning Techniques for Multimedia</booktitle>
+<ee>http://dx.doi.org/10.1007/978-3-540-75171-7_2</ee>
+<crossref>series/cogtech/354075170</crossref>
+<url>db/series/cogtech/354075170.html#CunninghamCD08</url>
+</incollection>
+<incollection mdate="2013-09-10" key="series/cogtech/HorndaschRR06">
+<author>Axel Horndasch</author>
+<author>Horst Rapp</author>
+<author>Hans R&ouml;ttger</author>
+<title>SmartKom-Public.</title>
+<pages>471-492</pages>
+<year>2006</year>
+<booktitle>SmartKom</booktitle>
+<ee>http://dx.doi.org/10.1007/3-540-36678-4_30</ee>
+<crossref>series/cogtech/54023732</crossref>
+<url>db/series/cogtech/54023732.html#HorndaschRR06</url>
+</incollection>
+<incollection mdate="2013-09-10" key="series/cogtech/ZimmerMU11">
+<author>Hubert D. Zimmer</author>
+<author>Stefan M&uuml;nzer</author>
+<author>Katja Umla-Runge</author>
+<title>Visuo-spatial Working Memory as a Limited Resource of Cognitive Processing.</title>
+<pages>13-34</pages>
+<year>2011</year>
+<booktitle>Resource-Adaptive Cognitive Processes</booktitle>
+<ee>http://dx.doi.org/10.1007/978-3-540-89408-7_2</ee>
+<crossref>series/cogtech/354089408</crossref>
+<url>db/series/cogtech/354089408.html#ZimmerMU11</url>
+</incollection>
+<incollection mdate="2013-09-10" key="series/cogtech/MayberryC11">
+<author>Marshall R. Mayberry</author>
+<author>Matthew W. Crocker</author>
+<title>The Evolution of a Connectionist Model of Situated Human Language Understanding.</title>
+<pages>143-167</pages>
+<year>2011</year>
+<booktitle>Resource-Adaptive Cognitive Processes</booktitle>
+<ee>http://dx.doi.org/10.1007/978-3-540-89408-7_8</ee>
+<crossref>series/cogtech/354089408</crossref>
+<url>db/series/cogtech/354089408.html#MayberryC11</url>
+</incollection>
+<incollection mdate="2013-09-10" key="series/cogtech/ZimmerMB11">
+<author>Hubert D. Zimmer</author>
+<author>Stefan M&uuml;nzer</author>
+<author>J&ouml;rg Baus</author>
+<title>From Resource-Adaptive Navigation Assistance to Augmented Cognition.</title>
+<pages>35-53</pages>
+<year>2011</year>
+<booktitle>Resource-Adaptive Cognitive Processes</booktitle>
+<ee>http://dx.doi.org/10.1007/978-3-540-89408-7_3</ee>
+<crossref>series/cogtech/354089408</crossref>
+<url>db/series/cogtech/354089408.html#ZimmerMB11</url>
+</incollection>
+<incollection mdate="2013-09-10" key="series/cogtech/Golumbic12">
+<author>Martin Charles Golumbic</author>
+<title>Perspectives on Reasoning About Time.</title>
+<pages>53-70</pages>
+<year>2012</year>
+<booktitle>Ubiquitous Display Environments</booktitle>
+<ee>http://dx.doi.org/10.1007/978-3-642-27663-7_4</ee>
+<crossref>series/cogtech/364227662</crossref>
+<url>db/series/cogtech/364227662.html#Golumbic12</url>
+</incollection>
+<incollection mdate="2013-09-10" key="series/cogtech/Hoyes07">
+<author>Keith Hoyes</author>
+<title>3D Simulation: the Key to A.I.</title>
+<pages>353-387</pages>
+<year>2007</year>
+<booktitle>Artificial General Intelligence</booktitle>
+<ee>http://dx.doi.org/10.1007/978-3-540-68677-4_11</ee>
+<crossref>series/cogtech/354023733</crossref>
+<url>db/series/cogtech/354023733.html#Hoyes07</url>
+</incollection>
+<incollection mdate="2013-09-10" key="series/cogtech/NeidigP13">
+<author>J&ouml;rg Neidig</author>
+<author>J&ouml;rg Prei&szlig;inger</author>
+<title>A SemProM Use Case: Maintenance of Factory and Automotive Components.</title>
+<pages>363-380</pages>
+<year>2013</year>
+<booktitle>SemProM</booktitle>
+<ee>http://dx.doi.org/10.1007/978-3-642-37377-0_22</ee>
+<crossref>series/cogtech/364237376</crossref>
+<url>db/series/cogtech/364237376.html#NeidigP13</url>
+</incollection>
+<incollection mdate="2013-09-10" key="series/cogtech/BrandhermSNL13">
+<author>Boris Brandherm</author>
+<author>Michael Schmitz</author>
+<author>Robert Ne&szlig;elrath</author>
+<author>Frank Lehmann</author>
+<title>A SemProM Use Case: Health Care and Compliance.</title>
+<pages>349-361</pages>
+<year>2013</year>
+<booktitle>SemProM</booktitle>
+<ee>http://dx.doi.org/10.1007/978-3-642-37377-0_21</ee>
+<crossref>series/cogtech/364237376</crossref>
+<url>db/series/cogtech/364237376.html#BrandhermSNL13</url>
+</incollection>
+<incollection mdate="2013-09-10" key="series/cogtech/AlexanderssonP06">
+<author>Jan Alexandersson</author>
+<author>Norbert Pfleger</author>
+<title>Discourse Modeling.</title>
+<pages>237-253</pages>
+<year>2006</year>
+<booktitle>SmartKom</booktitle>
+<ee>http://dx.doi.org/10.1007/3-540-36678-4_16</ee>
+<crossref>series/cogtech/54023732</crossref>
+<url>db/series/cogtech/54023732.html#AlexanderssonP06</url>
+</incollection>
+<incollection mdate="2013-09-10" key="series/cogtech/Gebhard13">
+<author>Patrick Gebhard</author>
+<title>Controlling Interaction with Digital Product Memories.</title>
+<pages>243-259</pages>
+<year>2013</year>
+<booktitle>SemProM</booktitle>
+<ee>http://dx.doi.org/10.1007/978-3-642-37377-0_15</ee>
+<crossref>series/cogtech/364237376</crossref>
+<url>db/series/cogtech/364237376.html#Gebhard13</url>
+</incollection>
+<incollection mdate="2013-09-10" key="series/cogtech/Wittig11">
+<author>Frank Wittig</author>
+<title>Comparison of Machine Learning Techniques for Bayesian Networks for User-Adaptive Systems.</title>
+<pages>315-336</pages>
+<year>2011</year>
+<booktitle>Resource-Adaptive Cognitive Processes</booktitle>
+<ee>http://dx.doi.org/10.1007/978-3-540-89408-7_14</ee>
+<crossref>series/cogtech/354089408</crossref>
+<url>db/series/cogtech/354089408.html#Wittig11</url>
+</incollection>
+</dblp>
