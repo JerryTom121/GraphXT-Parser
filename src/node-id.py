@@ -59,7 +59,7 @@ def writeRecords(file):
 	
     for a, y in dictYears.iteritems():
         idNum = dictAuthors[a];
-        output = str(idNum) + "L" + "|" + a + "|" + ','.join(map(str, y));		
+        output = str(idNum) + "|" + a + "|" + ','.join(map(str, y));		
         resultFile.write(output.encode('utf-8') + '\n');
 	
     resultFile.close();	
