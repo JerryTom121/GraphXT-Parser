@@ -7,19 +7,19 @@ import xml.etree.ElementTree as ET
 #date: Feb 2015
 
 print "This is an xml parser script that parses the DBLP xml provided at http://www.informatik.uni-trier.de/~ley/db/\n";
-print "The program generates a list of all publication authors listed in dblp.xml and assigns each author a unique identification number\n";
-print "The output of the program are stored in the results/set2/nodes directory, there should be 81 files .txt outputted to the directory\n";
+print "The program generates a list of all co-author relationships between authors listed in t    he document as well as the year of the joint publication in 'AuthorID1|AuthorID2:w
+' format\n";
+print "The output of the program are stored in the results/set2/edges directory, there should be 81 files .txt outputted to the directory\n";
 
-#example output: format '1|Author'
+#example output: format '1|2'
 
 dictYears = {};
-dictAuthors = collections.OrderedDict();
 resultFiles = [];
-prefix = '../results/set2/nodes/nodes';
+prefix = '../results/set2/edges/edges';
 suffix = '.txt';
 
 def parse(parseFileName, yearsFileName):
-    global dictAuthors;
+    global dictEdges;
     global dictYears;
     global resultFiles;
     global prefix;
@@ -33,12 +33,12 @@ def parse(parseFileName, yearsFileName):
     with open(parseFileName, 'r') as parseFile:
         for line in parseFile:
             args = line.strip("\n").split("|");
-            idNum = args[0];
-            author = args[1];
+            id1 = args[0];
+            id2 = args[1];
             years = args[2].split(",");
-
-            dictAuthors.update({author : idNum});
-            dictYears.update({author : years});
+            authKey = str(id1) + "|" + str(id2);
+           
+            dictYears.update({authKey : years});
 
     processRecord();
 	
@@ -64,12 +64,11 @@ def processRecord():
     #for a,b in fileRef.items():
     #    print a,b;
 
-    for a,y in dictYears.items():
+    for authKey,y in dictYears.items():
         for year in y:
             resultFile = prefix + year + suffix;
             ref = fileRef[resultFile];
-            output = dictAuthors[a] + "|" + a;
-            ref.write(output + "\n");
+            ref.write(authKey + "\n");
      
     for name, file in fileRef.items():
         file.close();
