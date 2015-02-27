@@ -11,8 +11,8 @@ print "The program generates a list of all co-author relationships between autho
 
 #example output: format 'AuthorID1|AuthorID2|Year'
 
-dictAuthors = {}
-dictEdges = collections.OrderedDict() #stores all authors alongside publication dates
+dictAuthors = {};
+dictEdges = collections.OrderedDict(); #stores all authors alongside publication dates
 
 def parse(parseFileName, edgesFileName):
     global dictAuthors;
@@ -81,12 +81,10 @@ def processRecords(authors, yr):
 def writeRecords(file):
     resultFile = open(file, 'a');	
 	
-    for a, years in dictEdges.iteritems():
-        years.sort();
-
-        for y in years:
-            output = a + "|" + y;		
-            resultFile.write(output.encode('utf-8') + '\n');
+    for a, y in dictEdges.iteritems():
+        y.sort();
+        output = a + "|" + ','.join(map(str, y));		
+        resultFile.write(output.encode('utf-8') + '\n');
 	
     resultFile.close();	
 
