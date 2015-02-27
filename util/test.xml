@@ -198,7 +198,7 @@
 <author>Dan Suciu</author>
 <title>XML-QL: A Query Language for XML</title>
 <url>http://www.w3.org/TR/NOTE-xml-ql/</url>
-<year>2020</year>
+<year>2005</year>
 </www>
 
 <incollection mdate="2013-09-10" key="series/cogtech/Zancanaro12">
@@ -244,7 +244,7 @@
 <author>Olaf Schreiner</author>
 <title>Speech Recognition.</title>
 <pages>85-107</pages>
-<year>2030</year>
+<year>2001</year>
 <booktitle>SmartKom</booktitle>
 <ee>http://dx.doi.org/10.1007/3-540-36678-4_6</ee>
 <crossref>series/cogtech/54023732</crossref>
