@@ -1,0 +1,39 @@
+Current file: /Volumes/HALE/nGrams/arcs/arcs.03-of-99.txt
+Traceback (most recent call last):
+  File "edges-set1.py", line 105, in <module>
+    main()
+  File "edges-set1.py", line 102, in main
+    parse(arg1, arg2);
+  File "edges-set1.py", line 68, in parse
+    if not year in dictEdges[edgeKey]: # prevent duplicate edge occurence years
+KeyboardInterrupt
+  File "edges-set1.py", line 19
+    println "Beginning program to parse file and create edge listings for set1"
+                                                                              ^
+SyntaxError: invalid syntax
+Beginning program to parse file and create edge listings for set1
+
+Current file: /Volumes/HALE/nGrams/arcs/arcs.03-of-99.txt
+Current file: /Volumes/HALE/nGrams/arcs/arcs.04-of-99.txt
+Current file: /Volumes/HALE/nGrams/arcs/arcs.05-of-99
+Current file: /Volumes/HALE/nGrams/arcs/arcs.06-of-99.txt
+Current file: /Volumes/HALE/nGrams/arcs/arcs.07-of-99
+Current file: /Volumes/HALE/nGrams/arcs/arcs.08-of-99.txt
+Traceback (most recent call last):
+  File "edges-set1.py", line 110, in <module>
+    main()
+  File "edges-set1.py", line 107, in main
+    parse(arg1, arg2);
+  File "edges-set1.py", line 71, in parse
+    dictEdges.update({edgeKey : [year]});
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/_abcoll.py", line 542, in update
+    self[key] = other[key]
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/collections.py", line 61, in __setitem__
+    last[1] = root[0] = self.__map[key] = [last, root, key]
+KeyboardInterrupt
+Error: you must provide an xml file to parse from and file containing node id mapping
+Beginning program to parse file and create edge listings for set1
+
+Current file: /Users/halimaolapade/Documents/Impt_Docs/Julia_Work/nGrams/arcs/test/arcs.03-of-99.txt
+Min Year:  1900
+Max Year:  2008

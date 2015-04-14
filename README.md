@@ -4,14 +4,14 @@ The source files in this repository are written in python. The parsers were writ
 To use the parsers provided, the document type definition, DTD (also provided at the link above as 'dblp.dtd') must be copied into the xml document (dblp.xml) using the standard internal subset declaration format of xml (see http://en.wikipedia.org/wiki/Document_type_definition for example).
 
 Parsers provided (8):
-- conf-edges.py (outputs to )
-- conf-nodes.py (outputs to )
-- dblp_parser-edges.py
-- dblp_parser-nodes.py
-- edges-id.py
-- node-id.py
-- normalized-edges.py
-- normalized-nodes.py
+- DBLP/conf-edges.py (outputs to )
+- DBLP/conf-nodes.py (outputs to )
+- DBLP/dblp_parser-edges.py
+- DBLP/dblp_parser-nodes.py
+- DBLP/edges-id.py
+- DBLP/node-id.py
+- DBLP/normalized-edges.py
+- DBLP/normalized-nodes.py
 
 
 Note that the results outputted in the above files are not sorted in any particular order; you can use the unix 'sort' command to obtain alphabetical ordering of results.
