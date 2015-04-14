@@ -5,81 +5,78 @@ import collections;
 
 #author: Halima Olapade
 #date: April 2015
+#example output: format 'nodeID,node,year1,year2'
 
 dictWords = collections.OrderedDict();
 dictYears = collections.OrderedDict();
-resultFileN = './results/allNodes.txt';
+resultFileN = './results/set1/Nodes-set1.txt';
 
-def parse(dirPath):
-    global resultFile;    
-    idNo = 1   
+def parse(dirPath, nodesFileN):
+    global dictWords;
+    global dictYears;    
+
+    print "Beginning program to parse file and create node listings for set1\n"
+
+    #load word-to-id map
+    with open(nodesFileN, 'r') as edgeFile:
+        for line in edgeFile:
+            vars = line.split(',');
+            id = vars[0];
+            word = vars[1].strip('\n');
+            dictWords[word] =  id; 
+
+    try:
+        os.remove(resultFileN);
+    except OSError:
+        pass;
+
 
     #parse all files in the given directory
     for fileN in glob.glob(os.path.join(dirPath, '*.*')):
         with open(fileN, "r") as file:
             print("Current file: " + file.name)
         
-            firstW = ""
-            secW = ""
             for line in file:
                 args = line.split("\t");
-                edgeWords = args[1].split(" ");
+                word = args[0]
                 listSize = len(args)
-
-                #if phrase contains 3 words, take the first and last
-                if(len(edgeWords) > 2):
-                    firstW = (edgeWords[0].split("/"))[0] 
-                    secW = (edgeWords[-1].split("/"))[0]
-                else:
-                    firstW = (edgeWords[0].split("/"))[0]
-                    secW = (edgeWords[1].split("/"))[0]
-            
-                if not firstW in dictWords:
-                    dictWords.update({firstW : idNo});
-                    idNo += 1
-                
-                if not secW in dictWords:
-                    dictWords.update({secW : idNo});
-                    idNo += 1
 
                 #add year information for edge occurrence
                 for k in range(3, listSize):
                     tok = args[k].split(",")
                     year = int(tok[0])
                     occur = int(tok[1])
-                
-                    #check for first word
-                    if not firstW in dictYears:
-                        dictYears.update({firstW : [year]})
+               
+                    #error checking: don't record words that aren't in nodesDict.txt
+                    if not word in dictWords:
+                        continue;
+                            
+                    #add word occurrence to dictionary 
+                    if not word in dictYears:
+                        dictYears.update({word : [year]});
                     else:
-                        if not year in dictYears[firstW]:
-                            dictYears[firstW].append(year);
-                    
-                    #check for second word
-                    if not secW in dictYears:
-                        dictYears.update({secW : [year]})
-                    else:
-                        if not year in dictYears[secW]:
-                            dictYears[secW].append(year);                            
+                        if not year in dictYears[word]:
+                            dictYears[word].append(year);
 
     writeRecords();                
 
 def writeRecords():
     resultFile = open(resultFileN, "w");
 
-    for w, id in dictWords.iteritems():
+    for w, yr in dictYears.iteritems():
         idNum = dictWords[w];
-        output = str(idNum) + "," + w + "," + ','.join(map(str, dictYears[w]));
+        output = str(idNum) + "," + w + "," + ','.join(map(str, yr));
         resultFile.write(output + "\n");
     resultFile.close();               
 
 def main():
-    if (not len(sys.argv) > 1):
-        print ("Error: you must provide a directory containing txt files to read from");
+    if (not len(sys.argv) > 2):
+        print ("Error: you must provide a directory containing txt files to read from and nodes dictionary");
         exit();
     else:
         arg1 = sys.argv[1];
-        parse(arg1);
+        arg2 = sys.argv[2];
+        parse(arg1, arg2);
 
 
 if __name__ == "__main__":
