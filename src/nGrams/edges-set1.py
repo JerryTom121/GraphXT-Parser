@@ -10,10 +10,13 @@ import collections;
 dictWords = {};
 dictEdges = collections.OrderedDict(); #stores all authors alongside publication dates
 resultFileN = "./results/set1/Edges-set1.txt";
+minYear = 2015;
+maxYear = 1700;
 
 def parse(dirPath, nodesFileN):
     global dictAuthors;
     global dictEdges;    
+    global resultFileN;
 
     print "Beginning program to parse file and create edge listings for set1\n"
 
@@ -29,6 +32,9 @@ def parse(dirPath, nodesFileN):
         os.remove(resultFileN);
     except OSError:
         pass;
+
+    #open result file to write
+    resultFile = open(resultFileN, 'w');
 
     #parse all files in the given directory
     for fileN in glob.glob(os.path.join(dirPath, '*.*')):
@@ -68,30 +74,28 @@ def parse(dirPath, nodesFileN):
                     else:
                         if not year in dictEdges[edgeKey]: # prevent duplicate edge occurence years
                             dictEdges[edgeKey].append(year); #append year to occurrence list
+            writeRecords(resultFile);
+            dictEdges.clear();     
+    resultFile.close();
 
-    writeRecords();     
-                
-def writeRecords():
-    resultFile = open(resultFileN, 'w');	
-    minYear = 2015;
-    maxYear = 1700;	
+    print "Min Year: ", minYear
+    print "Max Year: ", maxYear    
+            
+def writeRecords(rfile):
+    global minYear;
+    global maxYear;
 
     for a, years in dictEdges.iteritems():
         years.sort();
 
         for y in years:
             output = a + " " + str(y);       
-            resultFile.write(output + '\n');
+            rfile.write(output + '\n');
             
             if (y < minYear):
                 minYear = y
             elif (y > maxYear):
                 maxYear = y
-	
-    resultFile.close();	
-
-    print "Min Year: ", minYear
-    print "Max Year: ", maxYear
 
 def main():
     if (not len(sys.argv) > 2):
