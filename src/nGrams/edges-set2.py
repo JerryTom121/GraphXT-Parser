@@ -11,7 +11,7 @@ import collections;
 dictYears = {};
 resultFiles = [];
 fileRef = {}; 
-prefix = './results/set2/edges/edges';
+prefix = '../../../results/set2/edges/edges';
 suffix = '.txt';
 
 def parse(edgesDirPath, yearsFileN):

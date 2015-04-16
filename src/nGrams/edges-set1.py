@@ -9,7 +9,7 @@ import collections;
 
 dictWords = {};
 dictEdges = collections.OrderedDict(); #stores all authors alongside publication dates
-resultFileN = "./results/set1/Edges-set1.txt";
+resultFileN = "../../../results/set1/Edges-set1.txt";
 minYear = 2015;
 maxYear = 1700;
 
