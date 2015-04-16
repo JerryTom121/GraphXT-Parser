@@ -32,7 +32,7 @@ def parse(dirPath, nodesFileN):
 
 
     #parse all files in the given directory
-    for fileN in glob.glob(os.path.join(dirPath, '*.*')):
+    for fileN in glob.glob(os.path.join(dirPath, '*')):
         with open(fileN, "r") as file:
             print("Current file: " + file.name)
         

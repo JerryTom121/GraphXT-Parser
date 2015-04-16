@@ -60,7 +60,7 @@ def processRecord():
         for year in y:
             resultFile = prefix + year + suffix;
             ref = fileRef[resultFile];
-            output = dictWords[a] + " " + a;
+            output = dictWords[a] + "," + a;
             ref.write(output + "\n");
      
     for name, file in fileRef.items():
