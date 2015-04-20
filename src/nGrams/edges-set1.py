@@ -9,16 +9,18 @@ import collections;
 
 dictWords = {};
 dictEdges = collections.OrderedDict(); #stores all authors alongside publication dates
-resultFileN = "../../../results/set1/Edges-set1.txt";
+resultFileN = "/results/set1/Edges-set1.txt";
 minYear = 2015;
 maxYear = 1700;
 
-def parse(dirPath, nodesFileN):
+def parse(resultsPath, dirPath, nodesFileN):
     global dictAuthors;
     global dictEdges;    
     global resultFileN;
 
     print "Beginning program to parse file and create edge listings for set1\n"
+
+    resultFileN = resultsPath + resultFileN
 
     #load word-to-id map
     with open(nodesFileN, 'r') as edgeFile:
@@ -98,13 +100,14 @@ def writeRecords(rfile):
                 maxYear = y
 
 def main():
-    if (not len(sys.argv) > 2):
-        print ("Error: you must provide an xml file to parse from and file containing node id mapping");
+    if (not len(sys.argv) > 3):
+        print ("Error: you must provide path to results dir, edge listing in set1 notation and file containing node id mapping");
         exit();
     else:
         arg1 = sys.argv[1];
         arg2 = sys.argv[2];
-        parse(arg1, arg2);
+        arg3 = sys.argv[3];
+        parse(arg1, arg2, arg3);
 
 if __name__ == "__main__":
     main()

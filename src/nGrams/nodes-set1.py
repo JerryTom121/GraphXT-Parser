@@ -9,13 +9,16 @@ import collections;
 
 dictWords = collections.OrderedDict();
 dictYears = collections.OrderedDict();
-resultFileN = '../../../results/set1/Nodes-set1.txt';
+resultFileN = '/results/set1/Nodes-set1.txt';
 
-def parse(dirPath, nodesFileN):
+def parse(resultsPath, dirPath, nodesFileN):
     global dictWords;
     global dictYears;    
-
+    global resultFileN;
+    
     print "Beginning program to parse file and create node listings for set1\n"
+
+    resultFileN = resultsPath + resultFileN
 
     #load word-to-id map
     with open(nodesFileN, 'r') as edgeFile:
@@ -70,13 +73,14 @@ def writeRecords():
     resultFile.close();               
 
 def main():
-    if (not len(sys.argv) > 2):
-        print ("Error: you must provide a directory containing txt files to read from and nodes dictionary");
+    if (not len(sys.argv) > 3):
+        print ("Error: you must provide path to results dir, a directory containing txt files to read from and nodes dictionary");
         exit();
     else:
         arg1 = sys.argv[1];
         arg2 = sys.argv[2];
-        parse(arg1, arg2);
+        arg3 = sys.argv[3];
+        parse(arg1, arg2, arg3);
 
 
 if __name__ == "__main__":

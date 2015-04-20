@@ -9,15 +9,18 @@ import collections;
 dictYears = {};
 dictWords = collections.OrderedDict();
 resultFiles = [];
-prefix = '../../../results/set2/nodes/nodes';
+prefix = 'results/set2/nodes/nodes';
 suffix = '.txt';
 
-def parse(nodesFileN, yearsFileN):
+def parse(resultsPath, nodesFileN, yearsFileN):
     global dictWords;
     global dictYears;
     global resultFiles;
+    global prefix;
 
     print "Beginning program to parse file and create edge listings for set2\n"
+
+    prefix = resultsPath + prefix
 
     #load years between data interval e.g 1520 - 2008
     with open(yearsFileN, 'r') as yearsFile:
@@ -67,13 +70,14 @@ def processRecord():
         file.close();
                 
 def main():
-    if (not len(sys.argv) > 2):
-        print ("Error: you must provide a nodes dictionary file and file containing all years to map");
+    if (not len(sys.argv) > 3):
+        print ("Error: you must provide the path to dir containing results, a nodes dictionary file and file containing all years to map");
         exit();
     else:
         arg1 = sys.argv[1];
         arg2 = sys.argv[2];
-        parse(arg1, arg2);
+        arg3 = sys.argv[3];
+        parse(arg1, arg2, arg3);
 
 
 if __name__ == "__main__":

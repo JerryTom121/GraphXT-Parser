@@ -11,15 +11,18 @@ import collections;
 dictYears = {};
 resultFiles = [];
 fileRef = {}; 
-prefix = '../../../results/set2/edges/edges';
+prefix = '/results/set2/edges/edges';
 suffix = '.txt';
 
-def parse(edgesDirPath, yearsFileN):
+def parse(resultsPath, edgesDirPath, yearsFileN):
     global dictYears;
     global resultFiles;
     global fileRef;
+    global prefix;
 
     print "Beginning program to parse file and create edges listings for set2\n"
+
+    prefix = resultsPath + prefix
 
     with open(yearsFileN, 'r') as yearsFile:
         for line in yearsFile:
@@ -68,13 +71,14 @@ def processRecord():
             ref.write(edgeKey + "\n");
      
 def main():
-    if (not len(sys.argv) > 2):
-        print ("Error: you must provide an edges dictionar:y file to parse from and file containing all years to map");
+    if (not len(sys.argv) > 3):
+        print ("Error: you must provide path to results dir, an edges dictionary file to parse from and file containing all years to map");
         exit();
     else:
         arg1 = sys.argv[1];
         arg2 = sys.argv[2];
-        parse(arg1, arg2);
+        arg3 = sys.argv[3];
+        parse(arg1, arg2, arg3);
 
 
 if __name__ == "__main__":

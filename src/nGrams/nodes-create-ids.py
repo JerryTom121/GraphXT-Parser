@@ -8,11 +8,14 @@ import collections;
 
 dictWords = collections.OrderedDict();
 dictYears = collections.OrderedDict();
-resultFileN = './results/nodesDict.txt';
+resultFileN = '/results/nodesDict.txt';
 
-def parse(dirPath):
-    global resultFile;    
+def parse(resultsPath, dirPath):
+    global resultFile; 
+    global resultFileN;   
     idNo = 1   
+
+    resultFileN = resultsPath + resultFileN
 
     #parse all files in the given directory
     for fileN in glob.glob(os.path.join(dirPath, '*')):
@@ -54,12 +57,13 @@ def writeRecords():
     resultFile.close();               
 
 def main():
-    if (not len(sys.argv) > 1):
-        print ("Error: you must provide a directory containing txt files to read from");
+    if (not len(sys.argv) > 2):
+        print ("Error: you must provide a path to the result dir, a directory containing txt files to read from");
         exit();
     else:
         arg1 = sys.argv[1];
-        parse(arg1);
+        arg2 = sys.argv[2];
+        parse(arg1, arg2);
 
 
 if __name__ == "__main__":
