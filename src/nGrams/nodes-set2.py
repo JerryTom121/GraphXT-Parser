@@ -9,7 +9,7 @@ import collections;
 dictYears = {};
 dictWords = collections.OrderedDict();
 resultFiles = [];
-prefix = './results/set2/nodes/nodes';
+prefix = '../../../results/set2/nodes/nodes';
 suffix = '.txt';
 
 def parse(nodesFileN, yearsFileN):

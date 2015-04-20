@@ -9,7 +9,7 @@ import collections;
 
 dictWords = collections.OrderedDict();
 dictYears = collections.OrderedDict();
-resultFileN = './results/set1/Nodes-set1.txt';
+resultFileN = '../../../results/set1/Nodes-set1.txt';
 
 def parse(dirPath, nodesFileN):
     global dictWords;
