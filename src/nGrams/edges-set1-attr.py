@@ -113,7 +113,7 @@ def main():
         arg1 = sys.argv[1];
         arg2 = sys.argv[2];
         arg3 = sys.argv[3];
-        parse(arg1, arg2. arg3);
+        parse(arg1, arg2, arg3);
 
 if __name__ == "__main__":
     main()
