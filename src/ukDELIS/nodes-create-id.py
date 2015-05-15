@@ -7,33 +7,23 @@ import collections;
 
 print "This program assigns unique integer ids to every line in a text file and puts the results in the \'./results/nodesDict.txt\' file"
 
-resultFileName = './results/nodesDict.txt';
+resultFileN = './results/nodesDict.txt';
 
 def parse(parseFileName):
     lineIndex = 1
 
     try:
-        os.remove(resultFileName);
+        os.remove(resultFileN);
     except OSError:
         pass;
 
-    resultFile = open(resultsFileName, "w");
+    resultFile = open(resultFileN, "w");
 
     with open(parseFileName, 'r') as parseFile:
         for line in parseFile:
-            output = lineIndex + str(line.strip("\n"));
+            output = str(lineIndex) + "," + line
             resultFile.write(output)
             lineIndex += 1;
-
-    with open(parseFileName, 'r') as parseFile:
-        for line in parseFile:
-            args = line.strip("\n").split("|");
-            idNum = args[0];
-            author = args[1];
-            years = args[2].split(",");
-
-            dictAuthors.update({author : idNum});
-            dictYears.update({author : years});
 
 def main():
     if (not len(sys.argv) > 1):
