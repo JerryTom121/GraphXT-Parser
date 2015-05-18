@@ -10,7 +10,7 @@ print "This program assigns unique integer ids to every line in a text file and 
 resultFileN = './results/nodesDict.txt';
 
 def parse(parseFileName):
-    lineIndex = 1
+    lineIndex = 0
 
     try:
         os.remove(resultFileN);
