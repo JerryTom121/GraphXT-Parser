@@ -5,13 +5,16 @@ import collections;
 #author: Halima Olapade
 #date: April 2015
 
-print "This program assigns unique integer ids to every line in a text file and puts the results in the \'./results/nodesDict.txt\' file"
+print "This program assigns unique integer ids to every line in a text file and puts the results in the \'results/nodesDict.txt\' file of the results path passed in"
 
-resultFileN = './results/nodesDict.txt';
+resultFileN = '/results/nodesDict.txt';
 
-def parse(parseFileName):
+def parse(resultsPath, parseFileName):
+    global resultFileN;
+
     lineIndex = 0
-
+    resultFileN = resultsPath + resultFileN;
+    
     try:
         os.remove(resultFileN);
     except OSError:
@@ -26,11 +29,12 @@ def parse(parseFileName):
             lineIndex += 1;
 
 def main():
-    if (not len(sys.argv) > 1):
+    if (not len(sys.argv) > 2):
         exit();
     else:
         arg1 = sys.argv[1];
-        parse(arg1);
+	arg2 = sys.argv[2];
+        parse(arg1, arg2);
 
 
 if __name__ == "__main__":
