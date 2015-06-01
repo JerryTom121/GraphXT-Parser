@@ -30,11 +30,12 @@ def parse(resultsPath, parseFileName):
 
 def main():
     if (not len(sys.argv) > 2):
+        print "Error in Usage: python nodes-create-id.py /path-to-results-directory/ /path-to-ukDelis-url-listings/"
         exit();
-    else:
-        arg1 = sys.argv[1];
-	arg2 = sys.argv[2];
-        parse(arg1, arg2);
+    
+    arg1 = sys.argv[1];
+    arg2 = sys.argv[2];
+    parse(arg1, arg2);
 
 
 if __name__ == "__main__":

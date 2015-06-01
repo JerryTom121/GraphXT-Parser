@@ -7,7 +7,7 @@ from sortedcontainers import SortedDict;
 
 #author: Halima Olapade
 #date: May 2015
-#example output: format 'nodeID,node,month1,month2'
+#example output: format ‘node-id,node-attribute,month1,month2'	
 
 nodes = SortedDict();
 curIndex = 0;
@@ -136,7 +136,7 @@ def main():
     print "Starting Main Thread"
 
     if (not len(sys.argv) > 4):
-        print ("Usage: get-uniq-nodes-t.py <year-month> <path-to-ukD edges file> <nodesDictionary> <outDir>");
+        print ("Usage: get-uniq-nodes-t.py <year-month> <path-to-ukDELIS-edges-file> <nodesDictionary> <outDir>");
         exit();
     
     year = sys.argv[1];
@@ -144,9 +144,9 @@ def main():
     nodesDict = sys.argv[3];
     resultFileN = sys.argv[4] + resultDir + year;
 
-    print "Beginning program to parse file and create node listings for nodes, ids and months of occurence\n"
+    print "Beginning program to parse file and create node listings for nodes, ids and months of occurrence\n"
 
-    #Create new threads
+    #Spun new threads
     for numThreads in range (1, 13):
         threads.append(ParseThread(numThreads, "Thread-" + str(numThreads)))
     
