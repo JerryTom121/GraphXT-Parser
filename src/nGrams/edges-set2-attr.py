@@ -45,8 +45,8 @@ def parse(resultsPath, edgesDirPath, nodesFileN, yearsFileN):
         fileRef.update({yearFile : ref}); 
 
     #load word-to-id map
-    with open(nodesFileN, 'r') as edgeFile:
-        for line in edgeFile:
+    with open(nodesFileN, 'r') as nodeFile:
+        for line in nodeFile:
             vars = line.split(',');
             id = vars[0];
             word = vars[1].strip('\n');

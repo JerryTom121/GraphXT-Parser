@@ -8,14 +8,14 @@ import xml.etree.ElementTree as ET
 
 print "This is an xml parser script that parses the DBLP xml provided at http://www.informatik.uni-trier.de/~ley/db/\n";
 print "The program generates a list of all publication authors listed in dblp.xml and assigns each author a unique identification number\n";
-print "The output of the program are stored in the results/set2/nodes directory, there should be 81 files .txt outputted to the directory\n";
+print "The output of the program are stored in the results/set2/nodes directory, there should be 80 files .txt outputted to the directory\n";
 
-#example output: format '1|Author'
+#example output: format (one file per year) 'node-id,node-attribute'
 
 dictYears = {};
 dictAuthors = collections.OrderedDict();
 resultFiles = [];
-prefix = '../results/set2/nodes/nodes';
+prefix = './results/set2/nodes/nodes';
 suffix = '.txt';
 
 def parse(parseFileName, yearsFileName):
@@ -68,7 +68,7 @@ def processRecord():
         for year in y:
             resultFile = prefix + year + suffix;
             ref = fileRef[resultFile];
-            output = dictAuthors[a] + "|" + a;
+            output = dictAuthors[a] + “,” + a;
             ref.write(output + "\n");
      
     for name, file in fileRef.items():
@@ -76,12 +76,12 @@ def processRecord():
                 
 def main():
     if (not len(sys.argv) > 2):
-        print ("Error: you must provide an xml file to parse from and file containing node id     mapping");
+        print ("Error: you must provide an xml file to parse from and file containing node id mapping");
         exit();
-    else:
-        arg1 = sys.argv[1];
-        arg2 = sys.argv[2];
-        parse(arg1, arg2);
+    
+    arg1 = sys.argv[1];
+    arg2 = sys.argv[2];
+    parse(arg1, arg2);
 
 
 if __name__ == "__main__":

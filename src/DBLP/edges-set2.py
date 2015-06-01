@@ -14,7 +14,7 @@ print "The output of the program are stored in the results/set2/edges directory,
 
 dictYears = {};
 resultFiles = [];
-prefix = '../results/set2/edges/edges';
+prefix = './results/set2/edges/edges';
 suffix = '.txt';
 
 def parse(parseFileName, yearsFileName):
@@ -35,7 +35,7 @@ def parse(parseFileName, yearsFileName):
             id1 = args[0];
             id2 = args[1];
             years = args[2].split(",");
-            authKey = str(id1) + "|" + str(id2);
+            authKey = str(id1) + “,” + str(id2);
            
             dictYears.update({authKey : years});
 
@@ -74,7 +74,7 @@ def processRecord():
                 
 def main():
     if (not len(sys.argv) > 2):
-        print ("Error: you must provide an xml file to parse from and file containing node id     mapping");
+        print ("Error: you must provide an xml file to parse from and file containing node id mapping");
         exit();
     else:
         arg1 = sys.argv[1];

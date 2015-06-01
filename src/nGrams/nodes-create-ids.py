@@ -36,7 +36,11 @@ def parse(resultsPath, dirPath):
                 else:
                     firstW = (edgeWords[0].split("/"))[0]
                     secW = (edgeWords[1].split("/"))[0]
-            
+           
+                #skip words that contain a comma
+                if (firstW.find(",") != -1) or (secW.find(",") != -1):
+                    continue;
+ 
                 if not firstW in dictWords:
                     dictWords.update({firstW : idNo});
                     idNo += 1

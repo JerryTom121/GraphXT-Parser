@@ -2,4 +2,3 @@
 **/*.swp
 **/nohup.out
 results/*
-src/nGrams/results/

@@ -4,7 +4,7 @@ import collections;
 
 #author: Halima Olapade
 #date: April 2015
-#example output: format '1,word'
+#example output: format ‘node-id,node-attribute’
 
 dictYears = {};
 dictWords = collections.OrderedDict();

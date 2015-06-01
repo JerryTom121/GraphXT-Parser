@@ -5,7 +5,7 @@ import collections;
 
 #author: Halima Olapade
 #date: April 2015
-#example output: format 'edge1 edge2 year numOccur'
+#example output: format ‘srcId dstId year numOccur'
 
 dictWords = {};
 dictOccur = {};

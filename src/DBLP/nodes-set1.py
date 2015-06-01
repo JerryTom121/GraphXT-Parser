@@ -7,9 +7,9 @@ import xml.etree.ElementTree as ET
 #date: Feb 2015
 
 print "This is an xml parser script that parses the DBLP xml provided at http://www.informatik.uni-trier.de/~ley/db/\n";
-print "The program generates a list of all publication authors listed in dblp.xml and assigns each author a unique identification number\n";
+print "The program generates a list of all publication authors listed in dblp.xml and assigns each author a unique id number\n";
 
-#example output: format '1|Author'
+#example output: format ‘node-id,node-attribute,year1,year2,year3... year?’
 
 idNo = 1;
 dictAuthors = collections.OrderedDict();
@@ -17,7 +17,7 @@ dictYears = {};
 
 def parse(parseFileName):
     global dictAuthors;
-    resultFileName = "../results/Node-ID.txt";
+    resultFileName = "./results/Nodes-set1.txt";
 
     try:
             os.remove(resultFileName);
@@ -59,18 +59,18 @@ def writeRecords(file):
 	
     for a, y in dictYears.iteritems():
         idNum = dictAuthors[a];
-        output = str(idNum) + "|" + a + "|" + ','.join(map(str, y));		
+        output = str(idNum) + “,” + a + “,” + ','.join(map(str, y));		
         resultFile.write(output.encode('utf-8') + '\n');
 	
     resultFile.close();	
 
 def main():
     if (not len(sys.argv) > 1):
-        print ("Error: you must provide an xml file to parse from");
+        print ("Error: you must provide a dblp xml file to parse from");
         exit();
-    else:
-        arg1 = sys.argv[1];
-        parse(arg1);
+    
+    arg1 = sys.argv[1];
+    parse(arg1);
 
 
 if __name__ == "__main__":

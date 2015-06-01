@@ -5,7 +5,7 @@ import collections;
 
 #author: Halima Olapade
 #date: April 2015
-#example output: format 'nodeID,node,year1,year2'
+#example output: format 'node-id,node-attribute,year1,year2,year3... year?'
 
 dictWords = collections.OrderedDict();
 dictYears = collections.OrderedDict();
@@ -76,11 +76,11 @@ def main():
     if (not len(sys.argv) > 3):
         print ("Error: you must provide path to results dir, a directory containing txt files to read from and nodes dictionary");
         exit();
-    else:
-        arg1 = sys.argv[1];
-        arg2 = sys.argv[2];
-        arg3 = sys.argv[3];
-        parse(arg1, arg2, arg3);
+    
+    arg1 = sys.argv[1];
+    arg2 = sys.argv[2];
+    arg3 = sys.argv[3];
+    parse(arg1, arg2, arg3);
 
 
 if __name__ == "__main__":

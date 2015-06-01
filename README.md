@@ -36,12 +36,16 @@ Parsers provided (4):
 To run the parsers from the command line, you may use the example command:
     python nodes-set1.py /path-to-file/dblp.xml
     python edges-set1.py /path-to-file/dblp.xml ./results/Nodes-set1.txt 
+    
     python nodes-set2.py ./results/Nodes-set1.txt ../../util/yearsDBLP.txt
     python edges-set2.py ./results/Nodes-set1.txt ../../util/yearsDBLP.txt
-    **Note: the Nodes-set1.txt file referenced above is the output file from nodes-set1.py
+    
+    ** Note: the Nodes-set1.txt file referenced above is the output file from nodes-set1.py
 
-** Additional Notes: the dblp.xml file is very large and takes some time to parse with the python programs provided. You can test the programs against the util/test.xml file provided, which contains a small set of the data contained in dblp.xml. Run the test with the following command:
+** Additional Notes: 
+    - the dblp.xml file is very large and takes some time to parse with the python programs provided. You can test the programs against the util/test.xml file provided, which contains a small set of the data contained in dblp.xml. Run the test with the following command:
   python dblp-parser-edges.py /path-to-directory/utils/test.xml
+    - it is recommended to run the 'mkdir -p results/set2/nodes' and 'mkdir -p results/set2/edges' from src/DBLP in order to create the required directories for output files. Alternatively, you can change the location for output files.
 
 # nGrams Dataset
 Source - http://commondatastorage.googleapis.com/books/syntactic-ngrams/index.html (English 1 million)
@@ -74,3 +78,6 @@ To run the parsers from the command line, you may use the example command:
 
     python nodes-create-ids.py /path-to-results-directory/ /path-to-biarcs-files/
     python check-edges-set2.py ./results/nodesDict.txt ./results/set2/nodes/nodes ./results/set2/edges/edges
+
+** Additional Notes:
+    - it is recommended to run the 'mkdir -p results/set2/nodes' and 'mkdir -p results/set2/edges' from src/DBLP in order to create the required directories for output files. Alternatively, you can change the location for output files.

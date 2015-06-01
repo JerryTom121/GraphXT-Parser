@@ -7,22 +7,22 @@ import xml.etree.ElementTree as ET
 #date: Feb 2015
 
 print "\nThis is an xml parser script that parses the DBLP xml provided at http://www.informatik.uni-trier.de/~ley/db/";
-print "The program generates a list of all co-author relationships between authors listed in the document as well as the year of the joint publication in 'AuthorID1|AuthorID2|Year' format \n";
+print "The program generates a list of all co-author relationships between authors listed in the document as well as the year of the joint publication in 'AuthorID1 AuthorID2 Year' format \n";
 
-#example output: format 'AuthorID1|AuthorID2|Year'
+#example output: format 'AuthorID1 AuthorID2 Year'
 
 dictAuthors = {};
 dictEdges = collections.OrderedDict(); #stores all authors alongside publication dates
 
-def parse(parseFileName, edgesFileName):
+def parse(parseFileName, nodesFileName):
     global dictAuthors;
 
-    resultFileName = "../results/Edges-ID.txt";
+    resultFileName = "./results/Edges-set1.txt";
     
     #load author name-to-id map
-    with open(edgesFileName, 'r') as edgeFile:
-        for line in edgeFile:
-            vars = line.split('|');
+    with open(nodesFileName, 'r') as nodeFile:
+        for line in nodeFile:
+            vars = line.split(‘,’);
             id = vars[0];
             authName = vars[1].strip('\n');
             dictAuthors[authName] =  id;
@@ -85,7 +85,7 @@ def writeRecords(file):
         years.sort();
 
         for y in years:
-            output = a + " " + ','.join(map(str, y));		
+            output = a + " " + y;		
             resultFile.write(output.encode('utf-8') + '\n');
 	
     resultFile.close();	
