@@ -94,36 +94,44 @@ def findIds(fileN):
                 nodes.update({idsToWrite[1] : 1})
                 writeId.release()  
 
-def writeRecords():
+def writeRecords(nodesDict):
     resultFile = open(resultFileN, "w");
+    dictUrls = {}
 
-    #nodes.sort()
-    #newList = list(nodes.keys())
-    #newList.sort()
+    #load and initialize id-to-url map
+    with open(nodesDict, 'r') as nodeFile:
+        for line in nodeFile:
+            vars = line.split(',');
+            id = int(vars[0]);
+            url = vars[1].strip('\n');
+            dictUrls[id] = url;
+
     for id in iter(nodes):
-        resultFile.write(str(id) + "\n");
+        resultFile.write(str(id) + "," + dictUrls[id] + "\n");
     resultFile.close();               
 
 def main():
     global year;
     global dirPath;
     global resultFileN;
+    global nodesDict;
     global threads;    
 
     print "Starting Main Thread"
 
-    if (not len(sys.argv) > 3):
-        print ("Error: you must provide the year to parse, a path to a directory containing ukDELIS edges files to read from and a path to results dir containing \'uniqNodes\' directory");
+    if (not len(sys.argv) > 4):
+        print ("Usage: get-uniq-nodes-t.py <year-month> <path-to-ukD edges file> <nodesDictionary> <outDir>");
         exit();
     
     year = sys.argv[1];
     dirPath = sys.argv[2];
-    resultFileN = sys.argv[3] + resultDir + year;
+    nodesDict = sys.argv[3];
+    resultFileN = sys.argv[4] + resultDir + year;
 
     print "Beginning program to parse file and create node listings for nodes, ids and months of occurence\n"
 
     #Create new threads
-    for numThreads in range (1, 9):
+    for numThreads in range (1, 13):
         threads.append(ParseThread(numThreads, "Thread-" + str(numThreads)))
     
     try:
