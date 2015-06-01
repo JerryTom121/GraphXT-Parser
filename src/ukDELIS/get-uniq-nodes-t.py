@@ -66,33 +66,49 @@ def findIds(fileN):
     global nodes; 
     with open(fileN, "r") as file:
         print("Current file: " + file.name)
-        
+        newIds = []       
         for line in file:
             args = line.split("\t");
+            
+            #error checking
+            if(len(args) < 2):
+                continue;
+
+            if(args[0] == '' or args[1] == ''):
+                continue;
+
             id1 = int(args[0])
             id2 = int(args[1].strip("\n"))
 
-            idsToWrite = []
             #print id1,id2
         
             if not id1 in nodes:
-                idsToWrite.append(id1)
+                newIds.append(id1)
                 
             if not id2 in nodes:
-                idsToWrite.append(id2) 
+                newIds.append(id2) 
 
-            #add new ids to dict 
-            if len(idsToWrite) == 0:
-                continue;
-            elif len(idsToWrite) == 1:
+            #add new ids to nodes dict
+            if len(newIds) >= 25:
                 writeId.acquire()
-                nodes.update({idsToWrite[0] : 1}) 
-                writeId.release()
-            elif len(idsToWrite) == 2:
-                writeId.acquire()
-                nodes.update({idsToWrite[0] : 1}) 
-                nodes.update({idsToWrite[1] : 1})
+
+                for id in newIds:
+                    if not id in nodes:
+                        nodes.update({id : 1}) 
+                
                 writeId.release()  
+                del newIds[:]
+
+        #write remaining ids before moving to next file
+        if len(newIds) > 0:
+            writeId.acquire()
+
+            for id in newIds:
+                if not id in nodes:
+                    nodes.update({id : 1}) 
+                        
+            writeId.release() 
+            del newIds[:]
 
 def writeRecords(nodesDict):
     resultFile = open(resultFileN, "w");
