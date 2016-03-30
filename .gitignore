@@ -2,3 +2,9 @@
 **/*.swp
 **/nohup.out
 **/results/*
+
+*.xml
+
+.idea/.name
+
+*.iml
