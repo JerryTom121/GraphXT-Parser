@@ -21,6 +21,7 @@ suffix = '-01-01.txt';
 minYear = 2050;
 maxYear = -1;
 
+
 def parse(parseFileName):
     global dictAuthors;
 
@@ -80,11 +81,12 @@ def processAuthorRecord(authors, yr):
                 minYear = year
             elif(year > maxYear):
                 maxYear = year
-	
+    
             if not author in dictAuthors: # check if author record already exists
                 dictAuthors.update({author : idNo});
                 dictYears.update({author : [year]});
                 idNo += 1;
+                #print author, "-->", year
             else:
                 if not year in dictYears[author]:
                     dictYears[author].append(year);
@@ -122,7 +124,8 @@ def writeRecords():
 
             output = write_template.format(authorid, a.encode('utf-8'), url)
             ref.write(output);
-     
+    
+    nodesDictFile.close() 
     for name, file in fileRef.items():
         file.close();
 
@@ -134,6 +137,12 @@ def main():
     arg1 = sys.argv[1];
     parse(arg1);
 
+def trace(frame, event, arg):
+    if frame.f_code.co_filename == "nodes.py":
+        print "%s, %s:%d" % (event, frame.f_code.co_filename, frame.f_lineno)
+    return trace
+
+sys.settrace(trace)
 
 if __name__ == "__main__":
     main()

@@ -25,10 +25,16 @@ def parse(parseFileName, yearsFileName):
     global prefix;
     global suffix;
 
+    minYear = 0
+    maxYear = 0
+
     with open(yearsFileName, 'r') as yearsFile:
-        for line in yearsFile:
-            output = prefix + str(line.strip("\n")) + suffix;
-            resultFiles.append(output);
+        minYear = int(yearsFile.readline().strip("\n"))
+        maxYear = int(yearsFile.readline().strip("\n"))
+    
+    for year in range(minYear, maxYear + 1):
+        output = prefix + str(year) + suffix;
+        resultFiles.append(output);
 
     with open(parseFileName, 'r') as parseFile:
         for line in parseFile:
@@ -68,7 +74,7 @@ def processRecord():
         for year in y:
             resultFile = prefix + year + suffix;
             ref = fileRef[resultFile];
-            output = dictAuthors[a] + “,” + a;
+            output = dictAuthors[a] + "," + a;
             ref.write(output + "\n");
      
     for name, file in fileRef.items():
