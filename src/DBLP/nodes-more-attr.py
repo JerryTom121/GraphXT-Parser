@@ -13,6 +13,7 @@ print "The output of the program are stored in the results/set2/nodes directory,
 #example output: format (one file per year) 'node-id,node-attribute'
 
 dictYears = {};
+dictAuthorUrls = {};
 dictAuthors = collections.OrderedDict();
 resultFiles = [];
 prefix = './results/set2/nodes/nodes';
@@ -25,10 +26,24 @@ def parse(parseFileName, yearsFileName):
     global prefix;
     global suffix;
 
+    tree = ET.parse(parseFileName);
+    root = tree.getroot();
+
+    print "[info] processing author url records..."
+    for child in root:
+        title = child.find('title');
+
+        if title.text == "Home Page":
+            author = child.findall('author');
+            url = child.find('url');
+
+            if url is not None:
+                processUrlRecord(author, url.text);
+
     with open(yearsFileName, 'r') as yearsFile:
         min_year = int(yearsFile.readline().strip("\n"))
         max_year = int(yearsFile.readline().strip("\n"))
-    
+
     for year in range(min_year, max_year + 1):
         output = prefix + str(year) + suffix;
         resultFiles.append(output);
@@ -45,6 +60,16 @@ def parse(parseFileName, yearsFileName):
 
     processRecord();
 
+def processUrlRecord(author, url):
+    global dictAuthorUrls;
+
+    for auth in author:
+        if not (auth is None):
+            author = auth.text;
+
+            if not author in dictAuthorUrls:  # check if author record already exists
+                dictAuthorUrls.update({author: url});
+
 def processRecord():
     global dictAuthors;
     global dictYears;
@@ -52,6 +77,7 @@ def processRecord():
     global suffix;
 
     fileRef = {};
+    write_template = "{},{},{}\n"
 
     # open all result files
     for yearFile in resultFiles:
@@ -61,26 +87,30 @@ def processRecord():
             pass;
 
         ref = open(yearFile, 'a');
-        fileRef.update({yearFile : ref}); 
+        fileRef.update({yearFile : ref});
 
     # for a,b in fileRef.items():
     #    print a,b;
 
     for a,y in dictYears.items():
+        url = ""
+        if a in dictAuthorUrls:
+            url = dictAuthorUrls[a];
+
         for year in y:
             resultFile = prefix + year + suffix;
             ref = fileRef[resultFile];
-            output = dictAuthors[a] + "," + a;
+            output = write_template.format(dictAuthors[a], a, url);
             ref.write(output + "\n");
-     
+
     for name, file in fileRef.items():
         file.close();
-                
+
 def main():
     if (not len(sys.argv) > 2):
         print ("Error: you must provide an xml file to parse from and file containing node id mapping");
         exit();
-    
+
     arg1 = sys.argv[1];
     arg2 = sys.argv[2];
     parse(arg1, arg2);
