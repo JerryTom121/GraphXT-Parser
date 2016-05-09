@@ -6,5 +6,8 @@
 *.xml
 
 .idea/.name
-
 *.iml
+*.crc
+*.parquet
+**/*_metadata
+**/*_SUCCESS
